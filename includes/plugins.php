@@ -103,7 +103,7 @@ function cf7_action_wpcf7_mail_sent( $contact_form ) {
 /**
  * WP SEO in Dev
  */
-if (WP_ENVIRONMENT_TYPE == 'development') {
+if (wp_get_environment_type() == 'development') {
 	add_filter( 'yoast_seo_development_mode', '__return_true' );
 }
 

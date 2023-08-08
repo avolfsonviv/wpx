@@ -133,7 +133,7 @@ function gutenberg_assets() {
 	wp_enqueue_script( 'wpx-app-utils', get_stylesheet_directory_uri() . '/assets/js/app.utils.js', array( 'jquery' ), null, false );
 
 	// css
-	if (WP_ENVIRONMENT_TYPE !== 'production') {
+	if (wp_get_environment_type() !== 'production') {
 		wp_enqueue_style( 'wpx-gutenberg', assets_url().'/styles/gutenberg.css', false, null, false);
 	} else {
 		wp_enqueue_style( 'wpx-gutenberg-min', assets_url().'/styles/gutenberg.min.css', false, null, false);
@@ -165,7 +165,7 @@ add_action('wp_head', '\WPX\Enqueue\enqueue_ga');
  */
 function get_color_sass($color_array) {
 
-	$uncache_mode = (WP_ENVIRONMENT_TYPE == 'development' ? true : false);
+	$uncache_mode = (wp_get_environment_type() == 'development' ? true : false);
 
 	if ($uncache_mode) {
 		$hours = 0;

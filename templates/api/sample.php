@@ -164,7 +164,7 @@ function api_response() {
 			echo 'No posts found.';
 		}
 
-		if (WP_ENVIRONMENT_TYPE == 'development' || WP_ENVIRONMENT_TYPE == 'staging') :
+		if (wp_get_environment_type() == 'development' || wp_get_environment_type() == 'staging') :
 			echo '<script>';
 			echo 'console.log('.json_encode($parameters).');';
 			echo '</script>';
